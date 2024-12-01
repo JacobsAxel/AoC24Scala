@@ -12,8 +12,7 @@ val (left,right) = lines.map( x =>
   (pair(0),pair(1))
   ).toList.unzip
 
-val sortedL = left.sorted
-val sortedR = right.sorted
+val (sortedL,sortedR) = (left.sorted,right.sorted)
   
 val distances = sortedL.zip(sortedR).map((x,y) => math.abs(x-y))
 
