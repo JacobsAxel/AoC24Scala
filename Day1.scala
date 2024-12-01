@@ -2,7 +2,8 @@ import scala.io.Source
 
 @main def day1(): Unit =
 
-  println(result)
+  println(result1)
+  println(result2)
 
 //Part1
 
@@ -16,4 +17,15 @@ val (sortedL,sortedR) = (left.sorted,right.sorted)
   
 val distances = sortedL.zip(sortedR).map((x,y) => math.abs(x-y))
 
-val result = distances.sum
+val result1 = distances.sum
+
+//Part2
+
+val hashMap = right.groupBy(identity).mapValues(_.size)
+
+val countProduct = left.map(x => hashMap.contains(x) match
+    case true => x * hashMap(x)
+    case false => 0
+   ) 
+
+val result2 = countProduct.sum
