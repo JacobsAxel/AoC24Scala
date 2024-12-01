@@ -23,7 +23,7 @@ def part1(left:List[Int],right:List[Int]): Int =
 
 //Part2
 
-def part2(left:List[Int],right:List[Int])=
+def part2(left:List[Int],right:List[Int]): Int =
   val hashMap = right.groupBy(identity).mapValues(_.size)
   val countProduct = left.map(x => hashMap.contains(x) match
       case true => x * hashMap(x)
